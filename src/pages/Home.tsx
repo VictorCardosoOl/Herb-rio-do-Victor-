@@ -1,9 +1,14 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { gsap } from '@/lib/gsap-setup';
 import { ArrowRight } from 'lucide-react';
+import ProjectCard from '@/components/projects/ProjectCard';
+import ProjectModal from '@/components/projects/ProjectModal';
+import PlantDossier from '@/components/projects/PlantDossier';
+import { PLANTS, Plant } from '@/data/plants';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -37,35 +42,25 @@ export default function Home() {
       </div>
 
       {/* Main Content Grid */}
-      <div className="flex-1 grid grid-cols-1 gap-12 2xl:gap-16">
-        {/* Featured Article Card */}
-        <div className="hero-anim group cursor-pointer">
-          <div className="w-full aspect-[16/9] 2xl:aspect-[21/9] overflow-hidden mb-8 2xl:mb-12 bg-petrol/5 relative">
-            <img 
-              src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=2000&auto=format&fit=crop" 
-              alt="Costela de Adão" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      <div className="flex-1 grid grid-cols-1 gap-12 2xl:gap-24">
+        {PLANTS.map((plant, index) => (
+          <div key={plant.id} className="hero-anim">
+            <ProjectCard 
+              item={plant} 
+              onClick={() => setSelectedPlant(plant)} 
             />
-            <div className="absolute inset-0 bg-petrol/0 group-hover:bg-petrol/10 transition-colors duration-500" />
           </div>
-          
-          <div className="max-w-4xl 2xl:max-w-5xl">
-            <h2 className="text-3xl md:text-5xl 2xl:text-6xl font-serif font-medium leading-tight mb-6 group-hover:underline decoration-1 underline-offset-8">
-              Monstera deliciosa: Engenharia de Luz Difusa
-            </h2>
-            
-            <div className="flex items-center gap-4 text-sm 2xl:text-base font-mono text-petrol/60 mb-8 uppercase tracking-wider">
-              <span className="italic">Análise Técnica</span>
-              <span>•</span>
-              <span>Otimização Fotossintética</span>
-            </div>
-            
-            <p className="text-lg md:text-xl 2xl:text-2xl text-petrol/80 leading-relaxed max-w-3xl">
-              A fenestração foliar não é apenas estética; é uma solução evolutiva de alta eficiência para maximizar a captura de lúmens em ambientes de sub-bosque, reduzindo a resistência ao vento e otimizando a distribuição de energia.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
+
+      {/* Modal de Detalhes (Dossiê) */}
+      <ProjectModal 
+        isOpen={!!selectedPlant} 
+        onClose={() => setSelectedPlant(null)} 
+        item={selectedPlant}
+      >
+        {selectedPlant && <PlantDossier plant={selectedPlant} />}
+      </ProjectModal>
 
       {/* Footer / Issue Number */}
       <div className="hero-anim mt-24 2xl:mt-32 pt-8 2xl:pt-12 border-t border-petrol flex items-end justify-between">
@@ -73,8 +68,11 @@ export default function Home() {
           NO. 01
         </span>
         
-        <button className="flex items-center gap-2 text-lg 2xl:text-xl font-medium hover:gap-4 transition-all duration-300 group focus-visible:ring-2 focus-visible:ring-petrol focus-visible:ring-offset-4 rounded-lg px-2">
-          <span className="group-hover:underline decoration-1 underline-offset-4">Acessar Dossiê</span>
+        <button 
+          onClick={() => setSelectedPlant(PLANTS[0])}
+          className="flex items-center gap-2 text-lg 2xl:text-xl font-medium hover:gap-4 transition-all duration-300 group focus-visible:ring-2 focus-visible:ring-petrol focus-visible:ring-offset-4 rounded-lg px-2"
+        >
+          <span className="group-hover:underline decoration-1 underline-offset-4">Acessar Dossiê Principal</span>
           <ArrowRight size={24} className="2xl:w-8 2xl:h-8" />
         </button>
       </div>
