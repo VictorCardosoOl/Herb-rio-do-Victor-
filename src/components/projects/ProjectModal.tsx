@@ -83,12 +83,12 @@ export default function ProjectModal({ isOpen, onClose, item, children }: Projec
               y: "100%", 
               transition: { duration: 0.5, ease: [0.32, 0, 0.67, 0] } 
             }}
-            className="relative w-full h-[98vh] bg-paper rounded-t-[3rem] shadow-2xl overflow-hidden"
+            className="relative w-full h-[95vh] md:h-[98vh] bg-paper rounded-t-[2rem] md:rounded-t-[3rem] shadow-2xl overflow-hidden"
           >
             {/* Botão Fechar */}
             <button 
               onClick={onClose} 
-              className="absolute top-8 right-8 z-50 w-12 h-12 2xl:w-16 2xl:h-16 bg-petrol text-paper rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+              className="absolute top-6 right-6 md:top-8 md:right-8 z-50 w-10 h-10 md:w-16 md:h-16 bg-petrol text-paper rounded-full flex items-center justify-center hover:scale-110 transition-transform focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-petrol"
             >
                <X size={24} />
             </button>
@@ -100,18 +100,19 @@ export default function ProjectModal({ isOpen, onClose, item, children }: Projec
             >
                <div ref={modalContentRef} className="pb-32">
                   {/* Hero Section do Modal */}
-                  <div className="relative w-full aspect-[16/9] 2xl:aspect-[21/9] overflow-hidden">
+                  <div className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden">
+                    <div className="absolute inset-0 bg-petrol mix-blend-multiply opacity-20 z-10 pointer-events-none" />
                     <motion.img 
                       layoutId={`image-${item.id}`}
                       src={item.image} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover grayscale-[0.2] contrast-[1.15] brightness-90 saturate-[0.85]"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-paper via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-paper via-transparent to-transparent z-20" />
                   </div>
 
                   {/* Conteúdo Dinâmico */}
-                  <div className="px-8 md:px-24 2xl:px-48 -mt-24 2xl:-mt-48 relative z-10">
+                  <div className="px-[var(--space-container)] -mt-16 md:-mt-32 relative z-30">
                     <motion.div
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -119,13 +120,13 @@ export default function ProjectModal({ isOpen, onClose, item, children }: Projec
                     >
                       <motion.h2 
                         layoutId={`title-${item.id}`}
-                        className="text-5xl md:text-8xl 2xl:text-[10rem] font-serif font-medium leading-[0.85] text-petrol mb-6"
+                        className="text-[length:var(--text-display-lg)] font-serif font-medium leading-[0.85] text-petrol mb-4 md:mb-6"
                       >
                         {item.title}
                       </motion.h2>
                       <motion.p 
                         layoutId={`subtitle-${item.id}`}
-                        className="text-xl md:text-2xl 2xl:text-3xl text-petrol/60 font-mono uppercase tracking-widest mb-16"
+                        className="text-[length:var(--text-h3)] text-petrol/60 font-mono uppercase tracking-widest mb-12 md:mb-16"
                       >
                         {item.subtitle}
                       </motion.p>

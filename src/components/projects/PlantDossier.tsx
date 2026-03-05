@@ -17,9 +17,9 @@ export default function PlantDossier({ plant }: PlantDossierProps) {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 2xl:gap-24">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--space-section)]">
       {/* Coluna de Texto Principal */}
-      <div className="lg:col-span-7 space-y-12 2xl:space-y-20">
+      <div className="lg:col-span-7 space-y-[var(--space-card)]">
         <motion.section 
           custom={0} initial="hidden" animate="visible" variants={revealVariants}
           className="space-y-6"
@@ -27,7 +27,7 @@ export default function PlantDossier({ plant }: PlantDossierProps) {
           <h3 className="text-sm font-mono uppercase tracking-widest text-petrol/40 border-b border-petrol/10 pb-4">
             01. Análise Estrutural
           </h3>
-          <p className="text-2xl md:text-3xl 2xl:text-4xl font-light leading-relaxed text-petrol/80">
+          <p className="text-[length:var(--text-h2)] font-light leading-relaxed text-petrol/80">
             {plant.dossier.structuralAnalysis}
           </p>
         </motion.section>
@@ -64,7 +64,7 @@ export default function PlantDossier({ plant }: PlantDossierProps) {
           <h3 className="text-sm font-mono uppercase tracking-widest text-petrol/40 border-b border-petrol/10 pb-4">
             03. Geometria Sagrada
           </h3>
-          <p className="text-lg 2xl:text-xl text-petrol/70 leading-relaxed">
+          <p className="text-[length:var(--text-body-lg)] text-petrol/70 leading-relaxed">
             {plant.dossier.geometry}
           </p>
         </motion.section>
@@ -74,7 +74,7 @@ export default function PlantDossier({ plant }: PlantDossierProps) {
       <div className="lg:col-span-5 space-y-8">
         <motion.div 
           custom={3} initial="hidden" animate="visible" variants={revealVariants}
-          className="bg-petrol text-paper p-10 2xl:p-16 space-y-12"
+          className="bg-petrol text-paper p-8 md:p-12 2xl:p-16 space-y-12"
         >
           <div className="space-y-6">
             <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] opacity-50">Especificações de Sistema</h4>
@@ -84,21 +84,21 @@ export default function PlantDossier({ plant }: PlantDossierProps) {
                   <Sun size={16} className="opacity-50" />
                   <span className="text-sm font-light">Luminosidade Ideal</span>
                 </div>
-                <span className="font-serif text-2xl italic">{plant.dossier.specs.light}</span>
+                <span className="font-serif text-xl md:text-2xl italic text-right">{plant.dossier.specs.light}</span>
               </div>
               <div className="flex justify-between items-end border-b border-paper/10 pb-4">
                 <div className="flex items-center gap-3">
                   <Droplets size={16} className="opacity-50" />
                   <span className="text-sm font-light">Umidade Crítica</span>
                 </div>
-                <span className="font-serif text-2xl italic">{plant.dossier.specs.humidity}</span>
+                <span className="font-serif text-xl md:text-2xl italic text-right">{plant.dossier.specs.humidity}</span>
               </div>
               <div className="flex justify-between items-end border-b border-paper/10 pb-4">
                 <div className="flex items-center gap-3">
                   <Zap size={16} className="opacity-50" />
                   <span className="text-sm font-light">Taxa de Crescimento</span>
                 </div>
-                <span className="font-serif text-2xl italic">{plant.dossier.specs.growth}</span>
+                <span className="font-serif text-xl md:text-2xl italic text-right">{plant.dossier.specs.growth}</span>
               </div>
             </div>
           </div>

@@ -13,10 +13,20 @@
   --breakpoint-3xl: 1920px;
   --breakpoint-4xl: 2560px;
 
-  /* Typography Scale using clamp() for responsiveness & accessibility */
-  --text-display-hero: clamp(4rem, 12vw, 12rem);
-  --text-display-lg: clamp(3rem, 10vw, 10rem);
-  --text-display-md: clamp(2.5rem, 8vw, 8rem);
+  /* Typography Scale - Fluid & Accessible */
+  --text-display-hero: clamp(3.5rem, 8vw + 1rem, 10rem);
+  --text-display-lg: clamp(2.5rem, 6vw + 1rem, 8rem);
+  --text-display-md: clamp(2rem, 4vw + 1rem, 6rem);
+  --text-h1: clamp(2rem, 4vw, 4rem);
+  --text-h2: clamp(1.75rem, 3vw, 3rem);
+  --text-h3: clamp(1.5rem, 2.5vw, 2.5rem);
+  --text-body-lg: clamp(1.125rem, 1.2vw, 1.5rem);
+  --text-body: clamp(1rem, 1vw, 1.125rem);
+  
+  /* Spacing Scale - Fluid */
+  --space-container: clamp(1.5rem, 5vw, 5rem);
+  --space-section: clamp(4rem, 10vw, 10rem);
+  --space-card: clamp(2rem, 4vw, 4rem);
 }
 
 @layer base {

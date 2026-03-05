@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 interface ProjectCardProps {
   item: {
@@ -15,7 +16,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ item, onClick }: ProjectCardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const isMobile = useMediaQuery('(max-width: 768px)');
   
   // 1. Detectar Scroll relativo ao card
   const { scrollYProgress } = useScroll({
@@ -41,21 +42,24 @@ export default function ProjectCard({ item, onClick }: ProjectCardProps) {
     <div 
       ref={containerRef} 
       onClick={onClick} 
-      className="group cursor-pointer py-12 2xl:py-20"
+      className="group cursor-pointer py-[var(--space-card)]"
     >
       {/* Wrapper com ClipPath Animado */}
       <motion.div 
         style={{ clipPath: isMobile ? undefined : clipPath }} 
-        className="relative aspect-[16/9] 2xl:aspect-[21/9] overflow-hidden bg-petrol/5"
+        className="relative aspect-[4/3] overflow-hidden bg-petrol/5"
       >
         {/* Imagem com Parallax e LayoutId */}
         <motion.div className="w-full h-full relative overflow-hidden">
+           {/* Filtro de Cor Petrol Overlay */}
+           <div className="absolute inset-0 bg-petrol mix-blend-multiply opacity-20 z-10 pointer-events-none" />
+           
            <motion.img 
               layoutId={`image-${item.id}`}
               src={item.image} 
               alt={item.title}
               style={{ scale: 1.3, y: yParallax }} 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover grayscale-[0.2] contrast-[1.15] brightness-90 saturate-[0.85]"
               referrerPolicy="no-referrer"
            />
         </motion.div>
@@ -76,13 +80,13 @@ export default function ProjectCard({ item, onClick }: ProjectCardProps) {
         <div className="max-w-4xl">
           <motion.h3 
             layoutId={`title-${item.id}`} 
-            className="text-3xl md:text-5xl 2xl:text-7xl font-serif font-medium leading-tight mb-4"
+            className="text-[length:var(--text-h2)] font-serif font-medium leading-tight mb-4"
           >
              {item.title}
           </motion.h3>
           <motion.p 
             layoutId={`subtitle-${item.id}`}
-            className="text-lg md:text-xl 2xl:text-2xl text-petrol/60 font-mono uppercase tracking-wider"
+            className="text-[length:var(--text-body-lg)] text-petrol/60 font-mono uppercase tracking-wider"
           >
             {item.subtitle}
           </motion.p>
