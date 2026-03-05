@@ -35,16 +35,6 @@ export default function Header() {
       </nav>
 
       <div className="flex flex-col gap-6">
-        <button className="group flex flex-col gap-2 text-left w-full hover:bg-petrol/5 p-3 -ml-3 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-petrol focus-visible:ring-offset-2">
-          <div className="flex items-center gap-2 text-sm font-medium text-petrol">
-            <div className="w-2 h-2 bg-petrol rounded-full group-hover:scale-125 transition-transform"></div>
-            <span>Newsletter Técnica</span>
-          </div>
-          <p className="text-xs text-petrol/60 leading-tight">
-            Receba micro-dossiês semanais sobre botânica aplicada.
-          </p>
-        </button>
-        
         <p className="text-[10px] font-mono text-petrol/40 uppercase tracking-widest border-t border-petrol/10 pt-4">
           @VictorHerbarium
         </p>
