@@ -47,7 +47,7 @@ export default function ProjectCard({ item, onClick }: ProjectCardProps) {
       {/* Wrapper com ClipPath Animado */}
       <motion.div 
         style={{ clipPath: isMobile ? undefined : clipPath }} 
-        className="relative aspect-[4/3] overflow-hidden bg-petrol/5"
+        className="relative aspect-[3/4] overflow-hidden bg-petrol/5"
       >
         {/* Imagem com Parallax e LayoutId */}
         <motion.div className="w-full h-full relative overflow-hidden">

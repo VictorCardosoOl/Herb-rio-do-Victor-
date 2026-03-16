@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { gsap, ScrollTrigger } from '@/lib/gsap-setup';
+import { gsap } from '@/lib/gsap-setup';
 import { lenis } from '@/lib/lenis-setup';
 
 export default function SmoothScrollWrapper({ children }: { children: React.ReactNode }) {
@@ -8,10 +8,7 @@ export default function SmoothScrollWrapper({ children }: { children: React.Reac
       lenis.raf(time * 1000);
     }
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
+    gsap.ticker.add(update);
     gsap.ticker.lagSmoothing(0);
 
     return () => {

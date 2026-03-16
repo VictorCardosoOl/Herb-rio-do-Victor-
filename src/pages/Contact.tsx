@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from '@/lib/gsap-setup';
-import { ArrowRight, Github, Instagram, MessageCircle } from 'lucide-react';
+import { ArrowRight, Github, Instagram, MessageCircle, Mail, MapPin, Phone } from 'lucide-react';
+import Container from '@/components/layout/Container';
 
 export default function Contact() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -8,11 +9,11 @@ export default function Contact() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.anim-target', {
-        y: 50,
+        y: 30,
         opacity: 0,
-        duration: 1.2,
+        duration: 1,
         stagger: 0.1,
-        ease: 'power3.out',
+        ease: 'power2.out',
       });
     }, containerRef);
 
@@ -20,75 +21,148 @@ export default function Contact() {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-full flex flex-col p-8 md:p-16 2xl:p-24 3xl:p-32 max-w-screen-3xl mx-auto w-full">
-      {/* Header Section */}
-      <div className="mb-16 2xl:mb-24">
-        <h1 className="anim-target text-[12vw] md:text-[8rem] 2xl:text-[10rem] font-serif leading-[0.85] tracking-tight text-petrol mb-8 2xl:mb-12">
-          Contato
-        </h1>
-        
-        <div className="anim-target flex items-center justify-between border-b border-petrol pb-4 2xl:pb-6">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 2xl:w-3 2xl:h-3 rounded-full bg-petrol"></div>
-            <span className="font-medium text-sm md:text-base 2xl:text-lg">Canais de Comunicação</span>
+    <div ref={containerRef} className="min-h-full w-full py-[var(--space-container)]">
+      <Container>
+        {/* Header Section - Editorial Style */}
+        <div className="mb-[var(--space-section)]">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+            <h1 className="anim-target text-[clamp(4rem,15vw,12rem)] font-serif leading-[0.85] tracking-tight text-petrol">
+              Contato
+            </h1>
+            <div className="anim-target max-w-sm">
+              <p className="text-sm md:text-base text-petrol/60 leading-relaxed font-light">
+                Para consultas técnicas, parcerias botânicas ou acesso a espécimes raros, utilize nossos canais oficiais de comunicação.
+              </p>
+            </div>
           </div>
-          <span className="font-mono text-sm md:text-base 2xl:text-lg">VOL. V</span>
+          
+          <div className="anim-target flex items-center justify-between border-b border-petrol/20 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-1.5 h-1.5 rounded-full bg-petrol animate-pulse"></div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-petrol/60">Canais de Comunicação</span>
+            </div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-petrol/60">VOL. V — 2026</span>
+          </div>
         </div>
-      </div>
 
-      {/* Main Content - Social Cards */}
-      <div className="flex-1 flex flex-col md:flex-row gap-8 2xl:gap-12 mb-24 2xl:mb-32">
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="anim-target flex-1 group">
-          <div className="h-full border border-petrol/10 p-8 2xl:p-12 flex flex-col justify-between hover:bg-petrol hover:text-paper transition-all duration-500 min-h-[300px] 2xl:min-h-[400px]">
-            <div className="flex justify-between items-start">
-              <Github size={32} strokeWidth={1.5} className="2xl:w-12 2xl:h-12" />
-              <ArrowRight size={24} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-500 2xl:w-8 2xl:h-8" />
+        {/* Main Content - Elegant Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--space-section)] mb-[var(--space-section)]">
+          
+          {/* Left Column - Direct Channels */}
+          <div className="lg:col-span-4 space-y-12">
+            <div className="anim-target space-y-8">
+              <h2 className="text-xs font-mono uppercase tracking-widest text-petrol/40 border-b border-petrol/10 pb-4">
+                01. Escritório Central
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <MapPin size={18} className="text-petrol/40 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">Localização</h4>
+                    <p className="text-sm text-petrol/60 font-light">Av. Paulista, 1000 — Estufa 04<br />São Paulo, SP — Brasil</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <Phone size={18} className="text-petrol/40 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">Telefone</h4>
+                    <p className="text-sm text-petrol/60 font-light">+55 11 99999-9999</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <Mail size={18} className="text-petrol/40 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-bold mb-1">Email</h4>
+                    <p className="text-sm text-petrol/60 font-light">contato@herbarium.com</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 className="text-3xl 2xl:text-5xl font-serif italic mb-2 2xl:mb-4">GitHub</h3>
-              <p className="font-mono text-xs 2xl:text-sm opacity-60">/victorherbarium</p>
+
+            <div className="anim-target space-y-8">
+              <h2 className="text-xs font-mono uppercase tracking-widest text-petrol/40 border-b border-petrol/10 pb-4">
+                02. Redes Digitais
+              </h2>
+              <div className="grid grid-cols-1 gap-4">
+                <a href="#" className="flex items-center justify-between p-4 border border-petrol/10 hover:bg-petrol hover:text-paper transition-all duration-500 group">
+                  <div className="flex items-center gap-4">
+                    <Instagram size={20} />
+                    <span className="text-sm font-medium">Instagram</span>
+                  </div>
+                  <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                </a>
+                <a href="#" className="flex items-center justify-between p-4 border border-petrol/10 hover:bg-petrol hover:text-paper transition-all duration-500 group">
+                  <div className="flex items-center gap-4">
+                    <Github size={20} />
+                    <span className="text-sm font-medium">GitHub</span>
+                  </div>
+                  <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                </a>
+                <a href="#" className="flex items-center justify-between p-4 border border-petrol/10 hover:bg-petrol hover:text-paper transition-all duration-500 group">
+                  <div className="flex items-center gap-4">
+                    <MessageCircle size={20} />
+                    <span className="text-sm font-medium">WhatsApp</span>
+                  </div>
+                  <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                </a>
+              </div>
             </div>
           </div>
-        </a>
 
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="anim-target flex-1 group">
-          <div className="h-full border border-petrol/10 p-8 2xl:p-12 flex flex-col justify-between hover:bg-petrol hover:text-paper transition-all duration-500 min-h-[300px] 2xl:min-h-[400px]">
-            <div className="flex justify-between items-start">
-              <Instagram size={32} strokeWidth={1.5} className="2xl:w-12 2xl:h-12" />
-              <ArrowRight size={24} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-500 2xl:w-8 2xl:h-8" />
-            </div>
-            <div>
-              <h3 className="text-3xl 2xl:text-5xl font-serif italic mb-2 2xl:mb-4">Instagram</h3>
-              <p className="font-mono text-xs 2xl:text-sm opacity-60">@victor.botanica</p>
+          {/* Right Column - Elegant Form */}
+          <div className="lg:col-span-8">
+            <div className="anim-target bg-petrol/5 p-8 md:p-16 border border-petrol/10 h-full">
+              <h2 className="text-xs font-mono uppercase tracking-widest text-petrol/40 mb-12">
+                03. Mensagem Direta
+              </h2>
+              
+              <form className="space-y-12" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div className="space-y-2 group">
+                    <label className="text-[10px] font-mono uppercase tracking-widest text-petrol/40 group-focus-within:text-petrol transition-colors">Nome Completo</label>
+                    <input type="text" className="w-full bg-transparent border-b border-petrol/20 py-2 focus:outline-none focus:border-petrol transition-colors font-serif text-xl" placeholder="Victor Moraes" />
+                  </div>
+                  <div className="space-y-2 group">
+                    <label className="text-[10px] font-mono uppercase tracking-widest text-petrol/40 group-focus-within:text-petrol transition-colors">Email Técnico</label>
+                    <input type="email" className="w-full bg-transparent border-b border-petrol/20 py-2 focus:outline-none focus:border-petrol transition-colors font-serif text-xl" placeholder="victor@exemplo.com" />
+                  </div>
+                </div>
+                
+                <div className="space-y-2 group">
+                  <label className="text-[10px] font-mono uppercase tracking-widest text-petrol/40 group-focus-within:text-petrol transition-colors">Assunto</label>
+                  <select className="w-full bg-transparent border-b border-petrol/20 py-2 focus:outline-none focus:border-petrol transition-colors font-serif text-xl appearance-none">
+                    <option>Consulta Técnica</option>
+                    <option>Parceria Institucional</option>
+                    <option>Acesso ao Herbário</option>
+                    <option>Outros</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2 group">
+                  <label className="text-[10px] font-mono uppercase tracking-widest text-petrol/40 group-focus-within:text-petrol transition-colors">Mensagem</label>
+                  <textarea rows={4} className="w-full bg-transparent border-b border-petrol/20 py-2 focus:outline-none focus:border-petrol transition-colors font-serif text-xl resize-none" placeholder="Descreva sua solicitação..."></textarea>
+                </div>
+
+                <button className="w-full md:w-auto bg-petrol text-paper px-12 py-4 text-sm font-mono uppercase tracking-widest hover:bg-petrol/90 transition-all flex items-center justify-center gap-4 group">
+                  Enviar Dossiê
+                  <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+                </button>
+              </form>
             </div>
           </div>
-        </a>
-
-        <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" className="anim-target flex-1 group">
-          <div className="h-full border border-petrol/10 p-8 2xl:p-12 flex flex-col justify-between hover:bg-petrol hover:text-paper transition-all duration-500 min-h-[300px] 2xl:min-h-[400px]">
-            <div className="flex justify-between items-start">
-              <MessageCircle size={32} strokeWidth={1.5} className="2xl:w-12 2xl:h-12" />
-              <ArrowRight size={24} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-500 2xl:w-8 2xl:h-8" />
-            </div>
-            <div>
-              <h3 className="text-3xl 2xl:text-5xl font-serif italic mb-2 2xl:mb-4">WhatsApp</h3>
-              <p className="font-mono text-xs 2xl:text-sm opacity-60">+55 11 99999-9999</p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      {/* Footer / Issue Number */}
-      <div className="anim-target mt-auto pt-8 2xl:pt-12 border-t border-petrol flex items-end justify-between">
-        <span className="text-6xl md:text-8xl 2xl:text-9xl font-sans font-light leading-none tracking-tighter">
-          NO. 05
-        </span>
-        
-        <div className="flex items-center gap-2 text-lg 2xl:text-xl font-medium group cursor-pointer">
-          <span className="group-hover:underline decoration-1 underline-offset-4">Enviar Email</span>
-          <ArrowRight size={24} className="2xl:w-8 2xl:h-8" />
         </div>
-      </div>
+
+        {/* Footer / Issue Number */}
+        <div className="anim-target pt-8 border-t border-petrol flex items-end justify-between">
+          <span className="text-[length:var(--text-display-lg)] font-sans font-light leading-none tracking-tighter">
+            NO. 05
+          </span>
+          <div className="text-right">
+            <p className="text-[10px] font-mono text-petrol/40 uppercase tracking-widest">Disponibilidade</p>
+            <p className="text-sm font-serif italic">Seg — Sex, 09:00 — 18:00</p>
+          </div>
+        </div>
+      </Container>
     </div>
   );
 }

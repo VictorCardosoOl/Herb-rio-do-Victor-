@@ -44,7 +44,7 @@ export default function Home() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-[var(--space-card)]">
+        <div className="flex-1 grid grid-cols-1 xl:grid-cols-2 gap-[var(--space-card)]">
           {PLANTS.map((plant, index) => (
             <div key={plant.id} className="hero-anim">
               <ProjectCard 
