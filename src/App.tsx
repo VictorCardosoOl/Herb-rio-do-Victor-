@@ -36,7 +36,7 @@ export default function App() {
         <BackToTop />
         <div className="min-h-screen bg-paper text-petrol font-sans selection:bg-petrol selection:text-paper flex flex-col md:flex-row">
           {/* Left Sidebar - Navigation (Desktop) */}
-          <div className="hidden md:block w-64 flex-shrink-0 relative z-50">
+          <div className="hidden md:block w-64 3xl:w-80 flex-shrink-0 relative z-50">
             <div className="sticky top-0 h-screen">
               <Header />
             </div>
@@ -61,7 +61,7 @@ export default function App() {
           </main>
 
           {/* Right Sidebar - Knowledge Panel (Desktop) */}
-          <div className="hidden xl:block w-96 flex-shrink-0 relative z-40">
+          <div className="hidden xl:block w-96 3xl:w-[480px] flex-shrink-0 relative z-40">
             <div className="sticky top-0 h-screen border-l border-petrol">
               <KnowledgePanel />
             </div>

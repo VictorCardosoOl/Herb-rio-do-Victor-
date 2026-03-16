@@ -74,7 +74,7 @@ export default function PlantDossier({ plant }: PlantDossierProps) {
       <div className="lg:col-span-5 space-y-8">
         <motion.div 
           custom={3} initial="hidden" animate="visible" variants={revealVariants}
-          className="bg-petrol text-paper p-8 md:p-12 2xl:p-16 space-y-12"
+          className="bg-petrol text-paper p-8 md:p-12 2xl:p-16 3xl:p-20 space-y-12 3xl:space-y-16"
         >
           <div className="space-y-6">
             <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] opacity-50">Especificações de Sistema</h4>

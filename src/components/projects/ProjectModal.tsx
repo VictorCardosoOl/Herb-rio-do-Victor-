@@ -83,7 +83,7 @@ export default function ProjectModal({ isOpen, onClose, item, children }: Projec
               y: "100%", 
               transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
             }}
-            className="relative w-full h-[95vh] md:h-[98vh] bg-paper rounded-t-[2rem] md:rounded-t-[3rem] shadow-2xl overflow-hidden"
+            className="relative w-full max-w-[2400px] mx-auto h-[95vh] md:h-[98vh] bg-paper rounded-t-[2rem] md:rounded-t-[3rem] shadow-2xl overflow-hidden"
           >
             {/* Botão Fechar */}
             <button 

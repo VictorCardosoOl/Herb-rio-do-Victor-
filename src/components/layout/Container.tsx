@@ -12,7 +12,7 @@ export default function Container({ children, className, fluid = false, ...props
     <div 
       className={cn(
         "w-full mx-auto px-[var(--space-container)]",
-        fluid ? "max-w-full" : "max-w-[1920px]",
+        fluid ? "max-w-full" : "max-w-screen-xl 2xl:max-w-[1440px] 3xl:max-w-[1800px] 4xl:max-w-[2400px]",
         className
       )} 
       {...props}

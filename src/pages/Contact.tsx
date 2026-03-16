@@ -20,32 +20,32 @@ export default function Contact() {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-full w-full py-[var(--space-container)]">
+    <div ref={containerRef} className="min-h-full w-full py-24 2xl:py-32 3xl:py-40">
       <Container>
         {/* Header Section - Editorial Style */}
-        <div className="mb-[var(--space-section)]">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
-            <h1 className="anim-target text-[clamp(4rem,15vw,12rem)] font-serif leading-[0.85] tracking-tight text-petrol">
+        <div className="mb-16 2xl:mb-24 3xl:mb-32">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 3xl:mb-16">
+            <h1 className="anim-target text-[clamp(4rem,15vw,12rem)] 3xl:text-[14rem] font-serif leading-[0.85] tracking-tight text-petrol">
               Contato
             </h1>
-            <div className="anim-target max-w-sm">
-              <p className="text-sm md:text-base text-petrol/60 leading-relaxed font-light">
+            <div className="anim-target max-w-sm 3xl:max-w-md">
+              <p className="text-sm md:text-base 3xl:text-lg text-petrol/60 leading-relaxed font-light">
                 Para consultas técnicas, parcerias botânicas ou acesso a espécimes raros, utilize nossos canais oficiais de comunicação.
               </p>
             </div>
           </div>
           
-          <div className="anim-target flex items-center justify-between border-b border-petrol/20 pb-4">
+          <div className="anim-target flex items-center justify-between border-b border-petrol/20 pb-4 3xl:pb-6">
             <div className="flex items-center gap-3">
-              <div className="w-1.5 h-1.5 rounded-full bg-petrol animate-pulse"></div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-petrol/60">Canais de Comunicação</span>
+              <div className="w-1.5 h-1.5 3xl:w-2 3xl:h-2 rounded-full bg-petrol animate-pulse"></div>
+              <span className="font-mono text-[10px] 3xl:text-xs uppercase tracking-[0.2em] text-petrol/60">Canais de Comunicação</span>
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-petrol/60">VOL. V — 2026</span>
+            <span className="font-mono text-[10px] 3xl:text-xs uppercase tracking-[0.2em] text-petrol/60">VOL. V — 2026</span>
           </div>
         </div>
 
         {/* Main Content - Elegant Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--space-section)] mb-[var(--space-section)]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 2xl:gap-20 3xl:gap-24 mb-24 2xl:mb-32 3xl:mb-40">
           
           {/* Left Column - Direct Channels */}
           <div className="lg:col-span-4 space-y-12">
@@ -152,13 +152,13 @@ export default function Contact() {
         </div>
 
         {/* Footer / Issue Number */}
-        <div className="anim-target pt-8 border-t border-petrol flex items-end justify-between">
-          <span className="text-[length:var(--text-display-lg)] font-sans font-light leading-none tracking-tighter">
+        <div className="anim-target pt-8 2xl:pt-12 3xl:pt-16 border-t border-petrol flex items-end justify-between">
+          <span className="text-[length:var(--text-display-lg)] 3xl:text-[10rem] font-sans font-light leading-none tracking-tighter">
             NO. 05
           </span>
           <div className="text-right">
-            <p className="text-[10px] font-mono text-petrol/40 uppercase tracking-widest">Disponibilidade</p>
-            <p className="text-sm font-serif italic">Seg — Sex, 09:00 — 18:00</p>
+            <p className="text-[10px] 3xl:text-xs font-mono text-petrol/40 uppercase tracking-widest">Disponibilidade</p>
+            <p className="text-sm 2xl:text-base 3xl:text-lg font-serif italic">Seg — Sex, 09:00 — 18:00</p>
           </div>
         </div>
       </Container>

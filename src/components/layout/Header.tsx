@@ -13,7 +13,7 @@ export default function Header() {
   const location = useLocation();
 
   return (
-    <header className="h-full flex flex-col justify-between py-12 px-8 border-r border-petrol">
+    <header className="h-full flex flex-col justify-between py-12 3xl:py-16 px-8 3xl:px-12 border-r border-petrol">
       <nav className="flex flex-col gap-6">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;

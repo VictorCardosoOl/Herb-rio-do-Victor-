@@ -95,7 +95,7 @@ export default function KnowledgePanel() {
   return (
     <aside 
       ref={wrapperRef}
-      className="h-full py-12 px-8 overflow-y-auto overscroll-contain no-scrollbar relative bg-paper"
+      className="h-full py-12 3xl:py-16 px-8 3xl:px-12 overflow-y-auto overscroll-contain no-scrollbar relative bg-paper"
       data-lenis-prevent
     >
       <div ref={contentRef} className="flex flex-col min-h-full">
